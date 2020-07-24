@@ -1,12 +1,21 @@
 <template id="beranda_beranda">
  <div>
+  <center>
+   <p>
+    <img :src="svg">
+   </p>
+  </center>
+  <div class="form-group">
+   <label>Link badge</label>
+   <input readonly="" :value="svg" class="form-control">
+  </div>
   <div class="list-group">
    <div v-for="x in 20" class="list-group-item">
     <p>Halo...</p>
     <div class="btn-group">
-     <div class="btn btn-success">Selesai</div>
+     <div @click="selesai(34)" class="btn btn-success">Selesai</div>
      <router-link to="/626/edit" class="btn btn-warning">Edit</router-link>
-     <div class="btn btn-danger">Hapus</div>
+     <div @click="hapus(15)" class="btn btn-danger">Hapus</div>
     </div>
    </div>
   </div>
@@ -15,6 +24,19 @@
 </template>
 <script>
  beranda_beranda = {
-  template: "#beranda_beranda"
+  template: "#beranda_beranda",
+  data(){
+   return {
+    svg: "vendor/badge.svg"
+   }
+  },
+  methods: {
+   selesai(id){
+    tanya = confirm("Selesai kah?")
+   },
+   hapus(id){
+    tanya = confirm("Hapus kah?")
+   }
+  }
  }
 </script>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="svg" style="background-color: rgb(189, 189, 189); width: 228px; height: 85px;">
+ <style>
+  text {
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 12px;
+  }
+  text.grade {
+   font-size: 50px;
+   stroke: none;
+  }
+  .judul {
+   font-weight: bold;
+   font-size: 18px;
+  }
+  circle {
+   fill: none !important;
+  }
+  .grade-s {
+   stroke: #7d00b3;
+   fill: #7d00b3;
+  }
+ </style>
+ <text x="15" y="25" class="judul">Statistik Efektif</text>
+ <text x="15" y="45">TODO</text>
+ <text x="80" y="45">15</text>
+ <text x="15" y="65">Selesai</text>
+ <text x="80" y="65">15</text>
+ <circle r="30" cx="183" cy="40" class="grade-s" stroke-width="3"></circle>
+ <text class="grade-s grade" x="168" y="57">S</text>
+</svg>
