@@ -1,0 +1,22 @@
+<template id="beranda_edit">
+ <div>
+  <form @submit.prevent="edit()">
+   <div class="form-group">
+    <input class="form-control" required="" placeholder="Masukkan quest" ref="input">
+   </div>
+  </form>
+ </div>
+</template>
+<script>
+ beranda_edit = {
+  template: "#beranda_edit",
+  mounted(){
+   this.$refs.input.focus()
+  },
+  methods: {
+   edit(){
+    this.$router.push("/")
+   }
+  }
+ }
+</script>

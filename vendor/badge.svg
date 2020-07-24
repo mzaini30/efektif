@@ -1,24 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="228" height="85" style="background-color: rgb(255, 205, 210);">
+<svg xmlns="http://www.w3.org/2000/svg" width="228" height="85" style="background-color: aqua;">
  <style>
   text {
    font-family: Arial, Helvetica, sans-serif;
    font-size: 12px;
-   fill: #000;
   }
   text.grade {
    font-size: 50px;
    stroke: none;
   }
+  text.grade-plus {
+   stroke: none;
+   font-size: 30px;
+  }
   .judul {
    font-weight: bold;
    font-size: 18px;
   }
-  circle {
-   fill: none !important;
+  circle.grade {
+   fill: none;
   }
   .grade-s {
    stroke: #7d00b3;
    fill: #7d00b3;
+  }
+  .grade-a {
+   stroke: #2fa0ed;
+   fill: #2fa0ed;
+  }
+  .grade-b {
+   stroke: #ed962f;
+   fill: #ed962f;
+  }
+  .grade-c {
+   stroke: #b30000;
+   fill: #b30000;
+  }
+  .grade-a-plus {
+   stroke: #1eb300;
+   fill: #1eb300;
+  }
+  .grade-b-plus {
+   stroke: #2f74ed;
+   fill: #2f74ed;
+   fill: #2f74ed;
   }
  </style>
  <text x="15" y="25" class="judul">Statistik Efektif</text>
@@ -26,6 +50,26 @@
  <text x="80" y="45">15</text>
  <text x="15" y="65">Selesai</text>
  <text x="80" y="65">15</text>
- <circle r="30" cx="183" cy="40" class="grade-s" stroke-width="3"></circle>
+ <!--
+ <circle r="30" cx="183" cy="40" class="grade-s grade" stroke-width="3"></circle>
  <text class="grade-s grade" x="168" y="57">S</text>
+ -->
+ <!--
+ <circle r="30" cx="183" cy="40" class="grade-a grade" stroke-width="3"></circle>
+ <text class="grade-a grade" x="167" y="57">A</text>
+ -->
+ <!--
+ <circle r="30" cx="183" cy="40" class="grade-b grade" stroke-width="3"></circle>
+ <text class="grade-b grade" x="168" y="57">B</text>
+ -->
+ <!--
+ <circle r="30" cx="183" cy="40" class="grade-c grade" stroke-width="3"></circle>
+ <text class="grade-c grade" x="166" y="57">C</text>
+ -->
+ <!--
+ <circle r="30" cx="183" cy="40" class="grade-a-plus grade" stroke-width="3"></circle>
+ <text class="grade-a-plus grade-plus" x="166" y="50">A+</text>
+ -->
+ <circle r="30" cx="183" cy="40" class="grade-b-plus grade" stroke-width="3"></circle>
+ <text class="grade-b-plus grade-plus" x="166" y="50">B+</text>
 </svg>

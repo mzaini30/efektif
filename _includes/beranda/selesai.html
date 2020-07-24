@@ -2,13 +2,21 @@
  <div>
   <p><strong>List quest yang sudah selesai</strong></p>
   <div class="list-group">
-   <div v-for="x in 20" class="list-group-item">Makan...</div>
+   <div v-for="x in 20" class="list-group-item">
+    <p>Makan...</p>
+    <div class="btn btn-warning" @click="belum_selesai(12)">Belum selesai</div>
+   </div>
   </div>
   <br>
  </div>
 </template>
 <script>
  beranda_selesai = {
-  template: "#beranda_selesai"
+  template: "#beranda_selesai",
+  methods: {
+   belum_selesai(id){
+    
+   }
+  }
  }
 </script>

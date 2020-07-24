@@ -7,7 +7,7 @@
     <router-link to="/" class="btn btn-dark">Beranda</router-link>
     <router-link to="/tambah" class="btn btn-primary">Tambah quest</router-link>
     <router-link to="/selesai" class="btn btn-success">Quest selesai</router-link>
-    <div class="btn btn-danger">Logout</div>
+    <div @click="logout()" class="btn btn-danger">Logout</div>
    </div>
   </div>
   <br>
@@ -16,7 +16,12 @@
 </template>
 <script>
  beranda = {
-  template: "#beranda"
+  template: "#beranda",
+  methods: {
+   logout(){
+    this.$router.push("/login")
+   }
+  }
  }
 </script>
 <style>

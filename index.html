@@ -28,6 +28,9 @@
   {% include beranda/beranda.html %}
   {% include beranda/tambah.html %}
   {% include beranda/selesai.html %}
+  {% include beranda/edit.html %}
+  {% include login.html %}
+  {% include daftar.html %}
   <script src="vendor/vue.min.js"></script>
   <script src="vendor/vue-router.min.js"></script>
   <script>
@@ -67,9 +70,17 @@
         },
         {
          path: ":id/edit",
-         component: beranda_beranda
+         component: beranda_edit
         }
        ]
+      },
+      {
+       path: "/login",
+       component: login
+      },
+      {
+       path: "/daftar",
+       component: daftar
       }
      ]
     })
