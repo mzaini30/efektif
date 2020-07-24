@@ -1,6 +1,16 @@
 <template id="beranda_beranda">
  <div>
-  <h1>Halo...</h1>
+  <div class="list-group">
+   <div v-for="x in 20" class="list-group-item">
+    <p>Halo...</p>
+    <div class="btn-group">
+     <div class="btn btn-success">Selesai</div>
+     <router-link to="/626/edit" class="btn btn-warning">Edit</router-link>
+     <div class="btn btn-danger">Hapus</div>
+    </div>
+   </div>
+  </div>
+  <br>
  </div>
 </template>
 <script>

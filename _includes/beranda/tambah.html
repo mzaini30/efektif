@@ -1,6 +1,6 @@
 <template id="beranda_tambah">
  <div>
-  <form>
+  <form @submit.prevent="tambahkan()">
    <div class="form-group">
     <input class="form-control" required="" placeholder="Masukkan quest" ref="input">
    </div>
@@ -13,9 +13,9 @@
   mounted(){
    this.$refs.input.focus()
   },
-  data(){
-   return {
-    input: ""
+  methods: {
+   tambahkan(){
+    this.$router.push("/")
    }
   }
  }
