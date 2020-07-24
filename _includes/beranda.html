@@ -1,13 +1,15 @@
 <template id="beranda">
  <div>
   <h1 class="text-center">Efektif</h1>
-  <div class="btn-group menu">
-   <router-link to="/" class="btn btn-dark">Beranda</router-link>
-   <router-link to="/tambah" class="btn btn-primary">Tambah quest</router-link>
-   <router-link to="/selesai" class="btn btn-success">Quest selesai</router-link>
-   <div class="btn btn-danger">Logout</div>
+  <div class="menu">
+   <div class="btn-group">
+    <router-link to="/" class="btn btn-dark">Beranda</router-link>
+    <router-link to="/tambah" class="btn btn-primary">Tambah quest</router-link>
+    <router-link to="/selesai" class="btn btn-success">Quest selesai</router-link>
+    <div class="btn btn-danger">Logout</div>
+   </div>
   </div>
-  <br><br>
+  <br>
   <router-view></router-view>
  </div>
 </template>
@@ -17,4 +19,9 @@
  }
 </script>
 <style>
+ .menu {
+  width: 100%;
+  overflow: auto;
+  white-space: nowrap;
+ }
 </style>

@@ -1,10 +1,22 @@
 <template id="beranda_tambah">
  <div>
-  <h1>Tambah</h1>
+  <form>
+   <div class="form-group">
+    <input class="form-control" required="" placeholder="Masukkan quest" ref="input">
+   </div>
+  </form>
  </div>
 </template>
 <script>
  beranda_tambah = {
-  template: "#beranda_tambah"
+  template: "#beranda_tambah",
+  mounted(){
+   this.$refs.input.focus()
+  },
+  data(){
+   return {
+    input: ""
+   }
+  }
  }
 </script>
