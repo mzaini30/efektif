@@ -1,0 +1,21 @@
+<template id="beranda">
+ <div>
+  <h1 class="text-center" @click="ke_beranda()">Efektif</h1>
+  <div class="btn-group">
+   <router-link to="/tambah" class="btn btn-success">Tambah quest</router-link>
+   <div class="btn btn-danger">Logout</div>
+  </div>
+  <br><br>
+  <router-view></router-view>
+ </div>
+</template>
+<script>
+ beranda = {
+  template: "#beranda",
+  methods: {
+   ke_beranda(){
+    this.$router.push("/")
+   }
+  }
+ }
+</script>

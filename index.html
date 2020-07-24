@@ -16,7 +16,41 @@
     <router-view></router-view>
    </div>
   </div>
+  {% include beranda.html %}
+  {% include beranda/beranda.html %}
   <script src="vendor/vue.min.js"></script>
   <script src="vendor/vue-router.min.js"></script>
+  <script>
+   new Vue({
+    el: ".vue",
+    watch: {
+     $route(){
+      window.scrollTo({
+       left: 0,
+       top: 0,
+       behavior: "smooth"
+      })
+     }
+    },
+    router: new VueRouter({
+     routes: [
+      {
+       path: "/",
+       component: beranda,
+       children: [
+        {
+         path: "",
+         component: beranda_beranda
+        },
+        {
+         path: "tambah",
+         component: beranda_beranda
+        }
+       ]
+      }
+     ]
+    })
+   })
+  </script>
  </body>
 </html>
