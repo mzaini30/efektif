@@ -27,6 +27,7 @@
   {% include beranda.html %}
   {% include beranda/beranda.html %}
   {% include beranda/tambah.html %}
+  {% include beranda/selesai.html %}
   <script src="vendor/vue.min.js"></script>
   <script src="vendor/vue-router.min.js"></script>
   <script>
@@ -59,6 +60,10 @@
         {
          path: "tambah",
          component: beranda_tambah
+        },
+        {
+         path: "selesai",
+         component: beranda_selesai
         }
        ]
       }
