@@ -21,6 +21,11 @@
    logout(){
     this.$router.push("/login")
    }
+  },
+  mounted(){
+   if (!localStorage.token_efektif){
+    this.$router.push("/login")
+   }
   }
  }
 </script>

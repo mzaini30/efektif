@@ -1,13 +1,13 @@
 <template id="login">
  <div>
-  <form>
+  <form @submit.prevent="cek()">
    <div class="form-group">
     <label>Username</label>
-    <input class="form-control" ref="username">
+    <input class="form-control" ref="username" required="" v-model="username">
    </div>
    <div class="form-group">
     <label>Password</label>
-    <input type="password" class="form-control">
+    <input type="password" class="form-control" required="" v-model="password">
    </div>
    <div class="form-group">
     <input type="submit" value="Masuk" class="btn btn-success">
@@ -19,8 +19,33 @@
 <script>
  login = {
   template: "#login",
+  data(){
+   return {
+    username: "",
+    password: ""
+   }
+  },
   mounted(){
    this.$refs.username.focus()
+  },
+  methods: {
+   cek(){
+    body = new FormData
+    body.append("username", this.username)
+    body.append("password", this.password)
+    fetch(`${api}/login.php/cek-login`, {
+     method: "post",
+     body
+    }).then(x => x.json()).then(data => {
+     console.log(data)
+     if (data != "salah"){
+      localStorage.setItem("token_efektif", data)
+      this.$router.push("/")
+     }
+     this.username = ""
+     this.password = ""
+    })
+   }
   }
  }
 </script>

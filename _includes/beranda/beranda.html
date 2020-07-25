@@ -6,8 +6,8 @@
    </p>
   </center>
   <div class="form-group">
-   <label>Link badge</label>
-   <input readonly="" :value="svg" class="form-control">
+   <label>Pasang badge</label>
+   <input readonly="" :value="embed(svg)" class="form-control">
   </div>
   <div class="list-group">
    <div v-for="x in 20" class="list-group-item">
@@ -15,7 +15,6 @@
     <div class="btn-group">
      <div @click="selesai(34)" class="btn btn-success">Selesai</div>
      <router-link to="/626/edit" class="btn btn-warning">Edit</router-link>
-     <div @click="hapus(15)" class="btn btn-danger">Hapus</div>
     </div>
    </div>
   </div>
@@ -34,8 +33,8 @@
    selesai(id){
     
    },
-   hapus(id){
-    
+   embed(x){
+    return `<a href="https://mzaini30.js.org/efektif/"><img src="${x}"></a>`
    }
   }
  }

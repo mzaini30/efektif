@@ -2,7 +2,7 @@
  <div>
   <form @submit.prevent="tambahkan()">
    <div class="form-group">
-    <input class="form-control" required="" placeholder="Masukkan quest" ref="input">
+    <input class="form-control" required="" placeholder="Masukkan quest" v-model="quest" ref="input">
    </div>
   </form>
  </div>
@@ -13,9 +13,19 @@
   mounted(){
    this.$refs.input.focus()
   },
+  data(){
+   return {
+    quest: ""
+   }
+  },
   methods: {
    tambahkan(){
-    this.$router.push("/")
+    body = new FormData
+    body.append("quest", this.quest)
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/tambah`, {
+     method: "post",
+     body
+    }).then(() => this.$router.push("/"))
    }
   }
  }
