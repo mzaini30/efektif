@@ -10,11 +10,11 @@
    <input readonly="" :value="embed(svg)" class="form-control">
   </div>
   <div class="list-group">
-   <div v-for="x in 20" class="list-group-item">
-    <p>Halo...</p>
+   <div v-for="x in data" v-if='x.selesai == 0' class="list-group-item">
+    <p v-text='x.quest'></p>
     <div class="btn-group">
-     <div @click="selesai(34)" class="btn btn-success">Selesai</div>
-     <router-link to="/626/edit" class="btn btn-warning">Edit</router-link>
+     <div @click="selesai(x.id)" class="btn btn-success">Selesai</div>
+     <router-link :to="'/' + x.id + '/edit'" class="btn btn-warning">Edit</router-link>
     </div>
    </div>
   </div>
@@ -26,7 +26,8 @@
   template: "#beranda_beranda",
   data(){
    return {
-    svg: "vendor/badge.svg"
+    svg: "vendor/badge.svg",
+    data: []
    }
   },
   methods: {
@@ -36,6 +37,9 @@
    embed(x){
     return `<a href="https://mzaini30.js.org/efektif/"><img src="${x}"></a>`
    }
+  },
+  mounted(){
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/tampil`).then(x => x.json()).then(data => this.data = data)
   }
  }
 </script>
