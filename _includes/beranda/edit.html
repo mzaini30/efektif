@@ -2,7 +2,7 @@
  <div>
   <form @submit.prevent="edit()">
    <div class="form-group">
-    <input class="form-control" required="" placeholder="Masukkan quest" ref="input">
+    <input class="form-control" required="" placeholder="Masukkan quest" ref="input" v-model='input'>
    </div>
   </form>
  </div>
@@ -10,12 +10,23 @@
 <script>
  beranda_edit = {
   template: "#beranda_edit",
+  data(){
+    return {
+      input: ''
+    }
+  },
   mounted(){
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/edit/${this.$route.params.id}`).then(x => x.json()).then(data => this.input = data)
    this.$refs.input.focus()
   },
   methods: {
    edit(){
-    this.$router.push("/")
+    body = new FormData
+    body.append('quest', this.input)
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/update/${this.$route.params.id}`, {
+      method: 'post',
+      body
+    }).then(() => this.$router.push("/"))
    }
   }
  }

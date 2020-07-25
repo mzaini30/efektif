@@ -32,14 +32,17 @@
   },
   methods: {
    selesai(id){
-    
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/selesai/${id}`).then(() => this.ambil_data())
    },
    embed(x){
     return `<a href="https://mzaini30.js.org/efektif/"><img src="${x}"></a>`
+   },
+   ambil_data(){
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/tampil`).then(x => x.json()).then(data => this.data = data)
    }
   },
   mounted(){
-    fetch(`${api}/quest.php/${localStorage.token_efektif}/tampil`).then(x => x.json()).then(data => this.data = data)
+    this.ambil_data()
   }
  }
 </script>
