@@ -2,8 +2,8 @@
  <div>
   <p><strong>List quest yang sudah selesai</strong></p>
   <div class="list-group">
-   <div v-for="x in 20" class="list-group-item">
-    <p>Makan...</p>
+   <div v-for="x in data" v-if='x.selesai == 1' class="list-group-item">
+    <p v-text='x.quest'></p>
     <div class="btn btn-warning" @click="belum_selesai(12)">Belum selesai</div>
    </div>
   </div>
@@ -13,10 +13,21 @@
 <script>
  beranda_selesai = {
   template: "#beranda_selesai",
+  data(){
+    return {
+      data: []
+    }
+  },
   methods: {
    belum_selesai(id){
     
+   },
+   ambil_data(){
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/tampil`).then(x => x.json()).then(data => this.data = data)
    }
+  },
+  mounted(){
+    this.ambil_data()
   }
  }
 </script>

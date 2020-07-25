@@ -37,7 +37,6 @@
      method: "post",
      body
     }).then(x => x.json()).then(data => {
-     console.log(data)
      if (data != "salah"){
       localStorage.setItem("token_efektif", data)
       this.$router.push("/")
