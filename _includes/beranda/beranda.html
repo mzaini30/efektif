@@ -32,18 +32,24 @@
   },
   methods: {
    selesai(id){
-    fetch(`${api}/quest.php/${localStorage.token_efektif}/selesai/${id}`).then(() => this.ambil_data())
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/selesai/${id}`).then(() => {
+      this.ambil_data()
+      this.ambil_svg()
+    })
    },
    embed(x){
-    return `<a href="https://mzaini30.js.org/efektif/"><img src="${x}"></a>`
+    return `<a href="https://mzaini30.js.org/efektif/"><img src="${x.replace(/\?.+/, '')}"></a>`
    },
    ambil_data(){
     fetch(`${api}/quest.php/${localStorage.token_efektif}/tampil`).then(x => x.json()).then(data => this.data = data)
+   },
+   ambil_svg(){
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/user-id`).then(x => x.json()).then(data => this.svg = `${api}/badge.php/${data}?${Math.random()}`)
    }
   },
   mounted(){
     this.ambil_data()
-    
+    this.ambil_svg()
   }
  }
 </script>
