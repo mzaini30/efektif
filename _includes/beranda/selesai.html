@@ -4,7 +4,7 @@
   <div class="list-group">
    <div v-for="x in data" v-if='x.selesai == 1' class="list-group-item">
     <p v-text='x.quest'></p>
-    <div class="btn btn-warning" @click="belum_selesai(12)">Belum selesai</div>
+    <div class="btn btn-warning" @click="belum_selesai(x.id)">Belum selesai</div>
    </div>
   </div>
   <br>
@@ -20,7 +20,7 @@
   },
   methods: {
    belum_selesai(id){
-    
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/belum-selesai/${id}`).then(() => this.ambil_data())
    },
    ambil_data(){
     fetch(`${api}/quest.php/${localStorage.token_efektif}/tampil`).then(x => x.json()).then(data => this.data = data)
