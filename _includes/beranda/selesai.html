@@ -20,10 +20,18 @@
   },
   methods: {
    belum_selesai(id){
-    fetch(`${api}/quest.php/${localStorage.token_efektif}/belum-selesai/${id}`).then(() => this.ambil_data())
+    loading()
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/belum-selesai/${id}`).then(() => {
+      this.ambil_data()
+      loading_selesai()
+    })
    },
    ambil_data(){
-    fetch(`${api}/quest.php/${localStorage.token_efektif}/tampil`).then(x => x.json()).then(data => this.data = data)
+    loading()
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/tampil`).then(x => x.json()).then(data => {
+      this.data = data
+      loading_selesai()
+    })
    }
   },
   mounted(){

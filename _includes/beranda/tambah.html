@@ -22,10 +22,14 @@
    tambahkan(){
     body = new FormData
     body.append("quest", this.quest)
+    loading()
     fetch(`${api}/quest.php/${localStorage.token_efektif}/tambah`, {
      method: "post",
      body
-    }).then(() => this.$router.push("/"))
+    }).then(() => {
+      this.$router.push("/")
+      loading_selesai()
+    })
    }
   }
  }

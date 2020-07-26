@@ -33,6 +33,7 @@
     body = new FormData
     body.append("username", this.username)
     body.append("password", this.password)
+    loading()
     fetch(`${api}/login.php/cek-login`, {
      method: "post",
      body
@@ -43,6 +44,7 @@
      }
      this.username = ""
      this.password = ""
+     loading_selesai()
     })
    }
   }

@@ -16,17 +16,25 @@
     }
   },
   mounted(){
-    fetch(`${api}/quest.php/${localStorage.token_efektif}/edit/${this.$route.params.id}`).then(x => x.json()).then(data => this.input = data)
+    loading()
+    fetch(`${api}/quest.php/${localStorage.token_efektif}/edit/${this.$route.params.id}`).then(x => x.json()).then(data => {
+      this.input = data
+      loading_selesai()
+    })
    this.$refs.input.focus()
   },
   methods: {
    edit(){
     body = new FormData
     body.append('quest', this.input)
+    loading()
     fetch(`${api}/quest.php/${localStorage.token_efektif}/update/${this.$route.params.id}`, {
       method: 'post',
       body
-    }).then(() => this.$router.push("/"))
+    }).then(() => {
+      this.$router.push("/")
+      loading_selesai()
+    })
    }
   }
  }

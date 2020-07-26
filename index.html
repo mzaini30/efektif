@@ -8,11 +8,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/progress.css">
   <style>
    .atas {
     position: fixed;
     bottom: 10px;
     right: 10px;
+   }
+   .sembunyi {
+    display: none;
    }
   </style>
  </head>
@@ -23,6 +27,9 @@
     <router-view></router-view>
    </div>
    <div @click="ke_atas()" class="btn btn-info atas">UP</div>
+    <div class="progress-loading sembunyi">
+      <div class="indeterminate"></div>
+    </div>
   </div>
   {% include beranda.html %}
   {% include beranda/beranda.html %}
@@ -35,6 +42,8 @@
   <script src="vendor/vue-router.min.js"></script>
   <script>
    api = "https://mzaini30.nasihosting.com/efektif"
+   loading = () => document.querySelector('.progress-loading').classList.remove('sembunyi')
+   loading_selesai = () => document.querySelector('.progress-loading').classList.add('sembunyi')
    new Vue({
     el: ".vue",
     methods: {
