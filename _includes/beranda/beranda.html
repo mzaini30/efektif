@@ -7,7 +7,7 @@
   </center>
   <div class="form-group">
    <label>Pasang badge</label>
-   <input readonly="" :value="svg" class="form-control">
+   <input readonly="" :value="embed(svg)" class="form-control">
   </div>
   <div class="list-group">
    <div v-for="x in data" v-if='x.selesai == 0' class="list-group-item">
@@ -40,7 +40,7 @@
     })
    },
    embed(x){
-    return `<a href="https://mzaini30.js.org/efektif"><img src="${x.replace(/\?.+/, '')}"></a>`
+    return `<a href="https://mzaini30.js.org/efektif"><img src="${x}"></a>`
    },
    ambil_data(){
     loading()
@@ -52,7 +52,7 @@
    ambil_svg(){
     loading()
     fetch(`${api}/quest.php/${localStorage.token_efektif}/user-id`).then(x => x.json()).then(data => {
-      this.svg = `${api}/badge.php/${data}?${Math.random()}`
+      this.svg = `${api}/badge.php/${data}`
       loading_selesai()
     })
    }
