@@ -2,7 +2,7 @@
  <div>
   <center>
    <p>
-    <img :src="svg">
+    <img :src="no_cache(svg)">
    </p>
   </center>
   <div class="form-group">
@@ -38,6 +38,9 @@
       this.ambil_svg()
       loading_selesai()
     })
+   },
+   no_cache(x){
+    return `${x}?${Math.random()}`
    },
    embed(x){
     return `<a href="https://mzaini30.js.org/efektif"><img src="${x}"></a>`
