@@ -2,7 +2,7 @@
  <div>
   <center>
    <p>
-    <img :src="no_cache(svg)">
+    <img :src="svg">
    </p>
   </center>
   <div class="form-group">
@@ -39,11 +39,8 @@
       loading_selesai()
     })
    },
-   no_cache(x){
-    return `${x}?${Math.random()}`
-   },
    embed(x){
-    return `<img src="${x}">`
+    return `<img src="${x.replace(/\?.+/, "")}">`
    },
    ambil_data(){
     loading()
@@ -55,7 +52,7 @@
    ambil_svg(){
     loading()
     fetch(`${api}/quest.php/${localStorage.token_efektif}/user-id`).then(x => x.json()).then(data => {
-      this.svg = `${api}/badge.php/${data}`
+      this.svg = `${api}/badge.php/${data}?${Math.random()}`
       loading_selesai()
     })
    }
